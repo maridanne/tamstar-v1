@@ -7,6 +7,19 @@
 </head>
 <body>
     <h1>Classifications</h1>
-    <p><em>display here all the classifications.</em></p>
+    <div>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+            @foreach ($classifications as $classification )
+                <tr>
+                    <td>{{$classification->id}}</td>
+                    <td>{{$classification->name}}</td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 </body>
 </html>

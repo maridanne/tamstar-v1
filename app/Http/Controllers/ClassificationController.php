@@ -9,7 +9,7 @@ class ClassificationController extends Controller
 {
     public function index(){
         $classifications = Classification::all();
-        return view('classifications.index', ['classifications' => $classifications]);
+        return view('classifications.index',['classifications' => $classifications]);
     }
 
     public function create(){
@@ -17,6 +17,11 @@ class ClassificationController extends Controller
     }
 
     public function store(Request $request){
-        dd($request);
+        $data = $request->validate([
+            'name' => 'required',
+        ]);
+        $newClassification = Classification::create($data);
+
+        return redirect(route('classifications.index'));
     }
 }
