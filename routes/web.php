@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/classifications', [ClassificationController::class, 'index'])->name('classifications.index');
 
 Route::get('/classifications/create', [ClassificationController::class, 'create'])->name('classifications.create');
+
+Route::post('/classifications', [ClassificationController::class, 'store'])->name('classifications.store');

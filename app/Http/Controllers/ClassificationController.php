@@ -15,4 +15,8 @@ class ClassificationController extends Controller
     public function create(){
         return view('classifications.create');
     }
+
+    public function store(Request $request){
+        dd($request);
+    }
 }
