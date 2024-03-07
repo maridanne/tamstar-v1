@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClassificationController;
-use App\Http\Controllers\EstablishmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/classifications', [ClassificationController::class, 'index'])->name('classifications.index');
-Route::get('/classifications/create', [ClassificationController::class, 'create'])->name('classifications.create');
-Route::get('/classifications/post', [ClassificationController::class, 'store'])->name('classifications.store');
-Route::get('/establishments', [EstablishmentController::class, 'index'])->name('establishments.index');
-Route::get('/establishments/create', [EstablishmentController::class, 'create'])->name('establishments.create');
-Route::get('/establishments/post', [EstablishmentController::class, 'store'])->name('establishments.store');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

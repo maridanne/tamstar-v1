@@ -18,20 +18,20 @@ class EstablishmentController extends Controller
 
     public function store(Request $request){
         $data = $request->validate([
-            'classification_id',
-            'province',
-            'city_municipality',
-            'male_emp_count',
-            'female_emp_count',
-            'num_of_employees',
-            'num_of_vehicles',
-            'num_of_rooms',
-            'name_of_entity',
-            'address',
-            'owner_opmngr_genmngr',
-            'accreditation_no',
-            'type_of_organization',
-            'date_established',
+            'classification_id' => 'required',
+            'province' => 'required',
+            'city_municipality' => 'required',
+            'male_emp_count' => 'nullable',
+            'female_emp_count' => 'nullable',
+            'num_of_employees' => 'nullable',
+            'num_of_vehicles' => 'nullable',
+            'num_of_rooms'=> 'nullable',
+            'name_of_entity' => 'required',
+            'address' => 'required',
+            'owner_opmngr_genmngr' => 'required',
+            'accreditation_no' => 'required',
+            'type_of_organization'=> 'nullable',
+            'date_established'=> 'nullable',
         ]);
         $newClassification = Establishment::create($data);
 
