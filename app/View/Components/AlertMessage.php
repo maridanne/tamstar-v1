@@ -24,6 +24,12 @@ class AlertMessage extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.alert-message');
+        // return view('components.alert-message');
+        //inline component views
+        return <<<'blade'
+        <div class="alert alert-danger">
+            {{ $slot }}
+        </div>
+        blade;
     }
 }

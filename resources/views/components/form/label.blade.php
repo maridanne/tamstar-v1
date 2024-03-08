@@ -3,5 +3,5 @@
 ])
  
 <div>
-    <label>{{$value}}</label>
+    <label>{{ $value ?? $slot }}</label>
 </div>

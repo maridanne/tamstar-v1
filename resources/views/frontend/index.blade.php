@@ -14,10 +14,10 @@
             <hr>
             <h4>Välkommen på Index Page</h4>
             <hr>
-            <x-form.label value="First Name"/>
-            <!-- <x-form.label>
-
-            </x-form.label> -->
+            <x-form.label value="DIOR SAUVAGE" />
+            <x-form.label>
+                LOUIS VUITTON
+            </x-form.label>
         </div>
     </div>
 
